@@ -52,7 +52,6 @@ var PopulateCountryCodes = function() {
 
 var dropDownList = function() {
     option += '<option value="' + rates.AUD.toFixed(2) +'">' +'Australian Dollar: ' + rates.AUD.toFixed(2) + "</option>"
-    option += '<option value="' + countryCodesArray[21] +'">' + 'Bitcoin: ' + rates.BTC + "</option>"
     option += '<option value="' + rates.BRL.toFixed(2)  +'">' + 'Brazillian real: ' + rates.BRL.toFixed(2) + "</option>"
     option += '<option value="' + rates.GBP.toFixed(2) +'">' + 'British Pound: ' + rates.GBP.toFixed(2) + "</option>"
     option += '<option value="' + rates.CAD.toFixed(2) +'"selected>' + 'Canadian Dollar: ' + rates.CAD.toFixed(2) + "</option>"
