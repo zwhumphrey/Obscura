@@ -1,5 +1,13 @@
-var currencyEl = document.getElementById('currency');
+var currencyEl = document.getElementById('date');
 var currencyDropdown = document.getElementById('currency-dropdown');
+var currencyTextEl = document.getElementById('currency-text2');
+
+currencyTextEl.textContent = "";
+
+//Listener for Currency DropDown Selection. Fire Function to fill Text portion. 
+currencyDropdown.addEventListener("change", function() {
+  currencyTextEl.textContent = "Example: $100 can be exchanged for approximately " + (this.value*100) + " of these less applicable fees. If you receive substantially less, you are getting ripped off!";
+})
 
 var countriesArray = [];
 var countryCodesArray = [];
@@ -29,7 +37,7 @@ var sortProperties = function(data){
   })
   console.log(countriesArray[0]);
   console.log(countriesArray[2])
-  currencyEl.textContent = "Today's Date: " + date; 
+  currencyEl.textContent = "*rates as of: " + date; 
   PopulateCountryCodes(); 
   return rates; 
 }
@@ -43,19 +51,25 @@ var PopulateCountryCodes = function() {
 }
 
 var dropDownList = function() {
-    option += '<option value="' + countryCodesArray[7] +'">' +'Australian Dollar: ' + rates.AUD + "</option>"
-    option += '<option value="' + countryCodesArray[22] +'"selected>' + 'Bitcoin: ' + rates.BTC + "</option>"
-    option += '<option value="' + countryCodesArray[49] +'"selected>' + 'British Pound: ' + rates.GBP + "</option>"
-    option += '<option value="' + countryCodesArray[26] +'"selected>' + 'Canadian Dollar: ' + rates.CAD + "</option>"
-    option += '<option value="' + countryCodesArray[32] +'"selected>' + 'Chinese Yuan: ' + rates.CNY + "</option>"
-    option += '<option value="' + countryCodesArray[46] +'"selected>' + 'European Euro: ' + rates.EUR + "</option>"
-    option += '<option value="' + countryCodesArray[66] +'"selected>' + 'Indian Ruppe: ' + rates.INR + "</option>"
-    option += '<option value="' + countryCodesArray[73] +'"selected>' + 'Japanese Yen: ' + rates.JPY + "</option>"
-    option += '<option value="' + countryCodesArray[100] +'"selected>' + 'Mexican Peso: ' + rates.MXN + "</option>"
-    option += '<option value="' + countryCodesArray[120] +'"selected>' + 'Russian Ruble: ' + rates.RUB + "</option>"
-    option += '<option value="' + countryCodesArray[28] +'"selected>' + 'Swiss Franc: ' + rates.CHF + "</option>"
-    option += '<option value="' + countryCodesArray[0] +'"selected>' + 'United Arab Emirates: ' + rates.AED + "</option>"
+    option += '<option value="' + rates.AUD.toFixed(2) +'">' +'Australian Dollar: ' + rates.AUD.toFixed(2) + "</option>"
+    option += '<option value="' + countryCodesArray[21] +'">' + 'Bitcoin: ' + rates.BTC + "</option>"
+    option += '<option value="' + rates.BRL.toFixed(2)  +'">' + 'Brazillian real: ' + rates.BRL.toFixed(2) + "</option>"
+    option += '<option value="' + rates.GBP.toFixed(2) +'">' + 'British Pound: ' + rates.GBP.toFixed(2) + "</option>"
+    option += '<option value="' + rates.CAD.toFixed(2) +'"selected>' + 'Canadian Dollar: ' + rates.CAD.toFixed(2) + "</option>"
+    option += '<option value="' + rates.CNY.toFixed(2) +'">' + 'Chinese Yuan: ' + rates.CNY.toFixed(2) + "</option>"
+    option += '<option value="' + rates.EUR.toFixed(2) +'">' + 'European Euro: ' + rates.EUR.toFixed(2) + "</option>"
+    option += '<option value="' + rates.INR.toFixed(2) +'">' + 'Indian Ruppe: ' + rates.INR.toFixed(2) + "</option>"
+    option += '<option value="' + rates.JPY.toFixed(2) +'">' + 'Japanese Yen: ' + rates.JPY.toFixed(2) + "</option>"
+    option += '<option value="' + rates.MXN.toFixed(2) +'">' + 'Mexican Peso: ' + rates.MXN.toFixed(2) + "</option>"
+    option += '<option value="' + rates.NZD.toFixed(2)  +'">' + 'New Zealand Dollar: ' + rates.NZD.toFixed(2) + "</option>"
+    option += '<option value="' + rates.RUB.toFixed(2) +'">' + 'Russian Ruble: ' + rates.RUB.toFixed(2) + "</option>"
+    option += '<option value="' + rates.ZAR.toFixed(2)  +'">' + 'South African Rand: ' + rates.ZAR.toFixed(2) + "</option>"
+    option += '<option value="' + rates.CHF.toFixed(2)  +'">' + 'Swiss Franc: ' + rates.CHF.toFixed(2) + "</option>"
+    option += '<option value="' + rates.THB.toFixed(2)  +'">' + 'Thailand Baht: ' + rates.THB.toFixed(2) + "</option>"
+    option += '<option value="' + rates.AED.toFixed(2) +'">' + 'United Arab Emirates: ' + rates.AED.toFixed(2) + "</option>"
+    
  currencyDropdown.innerHTML = option; 
 }
 
 console.log(countryCodesArray);
+
