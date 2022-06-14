@@ -1,3 +1,14 @@
+fetch("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=yC5puunijjlNFMYu2rgAObFpYth56e59&q=Minneapolis", {
+    "method": "GET",
+    "headers": {
+    }
+})
+    .then(response => {
+        console.log(response);
+    })
+    .catch(err => {
+        console.error(err);
+    });
 const key = "yC5puunijjlNFMYu2rgAObFpYth56e59";
 
 // find current weather conditions
@@ -15,7 +26,7 @@ const getCity = async (city) => {
     const response = await fetch(base + query);
     const data = await response.json();
 
-    console.log(data[0]);
+    return data[0];
 
 
 
