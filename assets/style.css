@@ -38,3 +38,11 @@ body {
     font-size: large;
     color: honeydew;
 }
+
+.packing-list{
+    color: white;
+    font-size: medium;
+    text-align: center;
+    font-weight: bolder;
+    
+}
