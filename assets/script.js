@@ -71,4 +71,3 @@ var dropDownList = function() {
 }
 
 console.log(countryCodesArray);
-
