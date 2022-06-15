@@ -1,0 +1,7 @@
+h1 {
+    justify-content: center;
+    display: flexbox;
+    margin: 2%;
+    padding: .5em;
+    top: .5em
+}

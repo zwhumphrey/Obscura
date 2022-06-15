@@ -21,7 +21,7 @@ const getWeather = async (id) => {
 };
 const base = "http://dataservice.accuweather.com/currentconditions/v1/";
 const query = "";
-
+const foreCast = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/348794?apikey=%09yC5puunijjlNFMYu2rgAObFpYth56e59"
 const getCity = async (city) => {
     const base = "http://dataservice.accuweather.com/locations/v1/cities/search";
     const query = `?apikey=${key}&q=${city}`;
