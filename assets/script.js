@@ -1,14 +1,19 @@
 var currencyEl = document.getElementById('date');
 var recentSearches = [];
+var city = ''; 
+
 
 function searchFunction(data) {
     
     recentSearches.push($('#textboxSearch').val()); 
+    city = $('#textboxSearch').val(); 
     $('#textboxSearch').val(""); 
     $('#searchHistory').text(""); 
 
     $.each(recentSearches, function (index, value) {
         $('#searchHistory').append("<li class='historyItem'  onclick='addtotextbox("+index+")'>" + value + '</li>');
+    //pass city name to city search api 
+        getCity(city);
     });
 }
 
@@ -49,15 +54,16 @@ request.onload = function() {
 var sortProperties = function(data){
   //Assign Date to variable 
   var date = data.date; 
+
   //Assign Country Rates to variable 
   rates = data.rates; 
   //Convert Object to Array and store in countriesArray
   Object.entries(rates).map(item => {
     countriesArray.push(...item);
   })
-  console.log(countriesArray[0]);
-  console.log(countriesArray[2])
-  currencyEl.textContent = "*rates as of: " + date; 
+
+  ;
+  currencyEl.textContent = "*rates as of: " + "06-16-2022"; 
   PopulateCountryCodes(); 
   return rates; 
 }
@@ -91,4 +97,126 @@ var dropDownList = function() {
 }
 
 console.log(countryCodesArray);
+
+
+//weather variables 
+const apiKey = "yC5puunijjlNFMYu2rgAObFpYth56e59";
+var locationKey = {}; 
+var temp = ''; 
+var weatherIcon = ''; 
+var temperatureEl = document.getElementById('temperature');
+var tempIconEl = document.getElementById('temp-icon');
+var forecastOneEl = document.getElementById('forecast1');
+var forecastTwoEl = document.getElementById('forecast2');
+var forecastThreeEl = document.getElementById('forecast3');
+var forecastFourEl = document.getElementById('forecast4');
+
+var dateZeroEl = document.getElementById('date0'); 
+var dateOneEl = document.getElementById('date1');
+var dateTwoEl = document.getElementById('date2');
+var dateThreeEl = document.getElementById('date3');
+var dateFourEl = document.getElementById('date4');
+
+var iconOneEl = document.getElementById('icon1');
+var iconTwoEl = document.getElementById('icon2');
+var iconThreeEl = document.getElementById('icon3');
+var iconFourEl = document.getElementById('icon4');
+
+var forecastDateOne = ''; 
+var forecastDateTwo= ''; 
+var forecastDateThree = ''; 
+var forecastDateFour = ''; 
+var forecastDayFive = ''; 
+
+var tempOne = '';
+var tempTwo = ''; 
+var tempThree = ''; 
+var tempFour = '';
+
+
+
+// beginning of weather api // 
+var getCity = function (city) {
+
+const base = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=" + apiKey; 
+const query = '&q=' + city + '&offset=0'; 
+
+  fetch(base + query) 
+    .then(function(response) {
+      if (response.ok) { console.log(response);
+        response.json().then(function(data){
+      console.log(data);
+
+      locationKey = data[0]?.Key; 
+      getWeather(locationKey);
+      getForecast(locationKey);
+       })
+       } else {
+        alert("City Not Found");
+       }
+    })
+      .catch(function(error){ 
+       console.log(error);
+  })
+} 
+
+const getWeather = async(locationKey) => {
+ const base = "http://dataservice.accuweather.com/currentconditions/v1/"
+ const query = locationKey + "?apikey=" + apiKey;
+
+ const response = await fetch(base + query); 
+ const data = await response.json(); 
+ console.log(data);
+ temp = data[0].Temperature.Imperial.Value;
+ weatherIcon = data[0].WeatherIcon; 
+ console.log(weatherIcon);
+
+  temperatureEl.textContent = temp + " F°"; 
+  dateZeroEl.textContent = "Today's Weather";
+  tempIconEl.setAttribute('src', './assets/icons/' + weatherIcon + '.png');
+}
+
+const getForecast = async(locationKey) => {
+  const base = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/"; 
+  const query = locationKey + "?apikey=" + apiKey; 
+
+  const response = await fetch(base + query); 
+  const data = await response.json(); 
+  console.log(data);
+  forecastDateOne = data.DailyForecasts[0].Date.split("T")[0]; 
+  forecastDateTwo = data.DailyForecasts[1].Date.split("T")[0]; 
+  forecastDateThree = data.DailyForecasts[2].Date.split("T")[0];
+  forecastDateFour = data.DailyForecasts[3].Date.split("T")[0];
+  forecastDateFive = data.DailyForecasts[4].Date.split("T")[0];
+  
+  
+ tempOne = data.DailyForecasts[1].Temperature.Maximum.Value;
+ tempTwo = data.DailyForecasts[2].Temperature.Maximum.Value;
+ tempThree = data.DailyForecasts[3].Temperature.Maximum.Value;
+ tempFour = data.DailyForecasts[4].Temperature.Maximum.Value;
+
+ iconOne = data.DailyForecasts[1].Day.Icon;
+ iconTwo = data.DailyForecasts[2].Day.Icon;
+ iconThree = data.DailyForecasts[3].Day.Icon;
+ iconFour = data.DailyForecasts[4].Day.Icon;
+
+ iconOneEl.setAttribute('src', './assets/icons/' + iconOne + ".png");
+ iconTwoEl.setAttribute('src', './assets/icons/' + iconTwo + ".png");
+ iconThreeEl.setAttribute('src', './assets/icons/' + iconThree + ".png");
+ iconFourEl.setAttribute('src', './assets/icons/' + iconFour + ".png");
+ 
+forecastOneEl.textContent = tempOne + "F°"; 
+forecastTwoEl.textContent = tempTwo + "F°"; 
+forecastThreeEl.textContent = tempThree + "F°"; 
+forecastFourEl.textContent = tempFour + "F°"; 
+
+dateOneEl.textContent = forecastDateTwo;
+dateTwoEl.textContent = forecastDateThree; 
+dateThreeEl.textContent = forecastDateFour; 
+dateFourEl.textContent = forecastDateFive; 
+
+
+
+ console.log(tempOne, tempTwo, tempThree, tempFour);
+}
 
