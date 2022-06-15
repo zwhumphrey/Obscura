@@ -35,21 +35,23 @@ header {
     margin-right: 2rem;
 }
 
-.currency-heading {
-    text-align: center;
+.weather {
+    text-align: right;
+    font-size: large;
+    color: honeydew;
 }
 
-.container-item-search {
-    display: flex;
+
+/* Zac's CSS */
+li:hover {
+
+
+    font-size: 20px;
 }
 
-.search-history {
-    border: 2px solid white;
-    width: 60vw;
-}
-
-p {
-    text-align: center;
-    color: #fff;
-    font-size: 2rem;
+.search-box {
+    border: 1px solid yellow;
+    width: 300px;
+    height: 110px;
+    background-color: lightblue;
 }
