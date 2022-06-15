@@ -3,6 +3,7 @@ fetch("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=yC5p
     "headers": {
     }
 })
+
     .then(response => {
         console.log(response);
     })
@@ -13,6 +14,7 @@ const key = "yC5puunijjlNFMYu2rgAObFpYth56e59";
 
 // find current weather conditions
 const getWeather = async (id) => {
+    ("http://dataservice.accuweather.com/currentconditions/v1/348794?apikey=%09yC5puunijjlNFMYu2rgAObFpYth56e59")
 
     //find city destination
 
