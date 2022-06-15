@@ -15,34 +15,8 @@ header {
 
 }
 
-.weather-api {
-    border: 2px solid white;
-    height: 55vh;
-    width: 65vw;
-    margin-left: 2rem;
-    padding-left: 2rem;
-}
 
-.bg-container {
-    display: flex;
-}
-
-.currency-api {
-    border: 2px solid white;
-    height: 55vh;
-    width: 25vw;
-    margin-left: 5rem;
-    margin-right: 2rem;
-}
-
-.weather {
-    text-align: right;
-    font-size: large;
-    color: honeydew;
-}
-
-
-/* Zac's CSS */
+/* Zac's Search CSS */
 li:hover {
 
 

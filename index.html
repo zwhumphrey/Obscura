@@ -25,14 +25,18 @@
             <div class="container-item-search">
                 <form id="search-form">
                     <label for="city-search">
+                        <!-- Zac's Code -->
                         <h2>Search for a city:</h2>
+                        <br />
+                        <input type=text id=textboxSearch>
+                        <button id=search onclick="searchFunction()">Search</button><br />
+                        <p>Search History:</p>
+                        <div class="search-box">
+                            <ul id="searchHistory"></ul>
+                        </div>
+                        <!-- end Zac's code -->
                     </label>
-                    <input type="text" name="city-search" id="city-search">
-                    <button type="submit" class="btn">Search</button>
                 </form>
-                <div class="search-history">
-                    <p>Search history</p>
-                </div>
             </div>
             <!-- end search form -->
             <!-- start 5-day forecast -->
@@ -115,15 +119,6 @@
                     </p>
                 </section>
 
-                <!-- Zac's Code -->
-                Search for a City:<br />
-                <input type=text id=textboxSearch>
-                <button id=search onclick="searchFunction()">Search</button><br />
-                <p>Search History:</p>
-                <div class="search-box">
-                    <ul id="searchHistory"></ul>
-                </div>
-                <!-- end Zac's code -->
 
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
                 <script src="./assets/script.js"></script>
