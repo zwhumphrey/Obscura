@@ -2,11 +2,11 @@ var currencyEl = document.getElementById('date');
 var recentSearches = [];
 var city = ''; 
 
+
 function searchFunction(data) {
     
     recentSearches.push($('#textboxSearch').val()); 
     city = $('#textboxSearch').val(); 
-   
     $('#textboxSearch').val(""); 
     $('#searchHistory').text(""); 
 
@@ -54,13 +54,14 @@ request.onload = function() {
 var sortProperties = function(data){
   //Assign Date to variable 
   var date = data.date; 
-  console.log(date +"thisone");
+
   //Assign Country Rates to variable 
   rates = data.rates; 
   //Convert Object to Array and store in countriesArray
   Object.entries(rates).map(item => {
     countriesArray.push(...item);
   })
+
   ;
   currencyEl.textContent = "*rates as of: " + "06-16-2022"; 
   PopulateCountryCodes(); 
@@ -96,6 +97,7 @@ var dropDownList = function() {
 }
 
 console.log(countryCodesArray);
+
 
 //weather variables 
 const apiKey = "yC5puunijjlNFMYu2rgAObFpYth56e59";
@@ -217,3 +219,4 @@ dateFourEl.textContent = forecastDateFive;
 
  console.log(tempOne, tempTwo, tempThree, tempFour);
 }
+
