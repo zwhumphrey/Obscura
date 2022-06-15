@@ -1,4 +1,24 @@
 var currencyEl = document.getElementById('date');
+var recentSearches = [];
+
+function searchFunction(data) {
+    
+    recentSearches.push($('#textboxSearch').val()); 
+    $('#textboxSearch').val(""); 
+    $('#searchHistory').text(""); 
+
+    $.each(recentSearches, function (index, value) {
+        $('#searchHistory').append("<li class='historyItem'  onclick='addtotextbox("+index+")'>" + value + '</li>');
+    });
+}
+
+function addtotextbox(id)
+{
+$('#textboxSearch').val(recentSearches[id]);
+};
+// end Zac's code
+
+
 var currencyDropdown = document.getElementById('currency-dropdown');
 var currencyTextEl = document.getElementById('currency-text2');
 
