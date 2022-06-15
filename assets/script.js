@@ -1,4 +1,5 @@
 var currencyEl = document.getElementById('date');
+
 var recentSearches = [];
 
 function searchFunction(data) {
@@ -16,7 +17,6 @@ function addtotextbox(id)
 {
 $('#textboxSearch').val(recentSearches[id]);
 };
-// end Zac's code
 
 
 var currencyDropdown = document.getElementById('currency-dropdown');
