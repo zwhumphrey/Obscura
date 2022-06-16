@@ -88,7 +88,7 @@ var dropDownList = function () {
 console.log(countryCodesArray);
 console.log(countryCodesArray);
 //weather variables
-const apiKey = "Pd4XCFO5skCVX2nfWtBXHUL7vVeLI3Bg";
+const apiKey = "Z5jGBtEgG3IzUTHYWCvsGfONcnfOoC3V";
 var locationKey = {};
 var temp = '';
 var weatherIcon = '';

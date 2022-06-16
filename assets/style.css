@@ -43,3 +43,6 @@ li:hover {
 .currency-container{
     color: white;
 }
+.fa-money-bill-transfer {
+    color: greenyellow;
+}
