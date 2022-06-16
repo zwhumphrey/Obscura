@@ -1,3 +1,6 @@
+*:root{
+    color: white;
+}
 body {
     height: 800px;
     width: 100%;
@@ -6,44 +9,47 @@ body {
     background-size: cover;
     background-position: center;
 }
-
-.header{
+.header {
     text-align: center;
     font-family: sans-serif, ;
-    font-size:xx-large;
+    font-size: xx-large;
     color: honeydew;
-    
 }
-
-.search{
+.packing-list{
+    color: white;
+    font-size: medium;
+    text-align: center;
+    font-weight: bolder;
+}
+.currency-text{
+    color: white;
+    font-size: medium;
     text-align: left;
-    font-size: large;
-    color: honeydew;
+    font-weight: bolder;
 }
 
-.flights{
-    text-align: right;
-    font-size: large;
-    color: honeydew;
+li:hover {
+    font-size: 20px;
 }
-
-.currency{
-    text-align: left;
-    font-size: large;
-    color: honeydew;
+.savebox {
+    color: white;
+    align-items:flex-end;
 }
-
 .weather{
-    text-align: right;
-    font-size: large;
-    color: honeydew;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
 }
 
 li:hover {
     
     font-size: 20px;
 }
-.search-box {
-    border:1px solid yellow; width:300px; height:110px;
-    background-color: lightblue;
+
+.currency-container{
+    color: white;
+}
+
+.fa-money-bill-transfer {
+    color: greenyellow;
 }
