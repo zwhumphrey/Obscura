@@ -40,9 +40,16 @@ li:hover {
     flex-wrap: wrap;
     color: white;
 }
+
+li:hover {
+    
+    font-size: 20px;
+}
+
 .currency-container{
     color: white;
 }
+
 .fa-money-bill-transfer {
     color: greenyellow;
 }

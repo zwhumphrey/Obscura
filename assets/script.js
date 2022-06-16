@@ -1,4 +1,5 @@
 var currencyEl = document.getElementById('date');
+
 var recentSearches = [];
 var city = '';
 
@@ -20,7 +21,6 @@ function searchFunction(data) {
 function addtotextbox(id) {
   $('#textboxSearch').val(recentSearches[id]);
 };
-
 
 
 var currencyDropdown = document.getElementById('currency-dropdown');
@@ -118,7 +118,7 @@ var tempThree = '';
 var tempFour = '';
 // beginning of weather api //
 var getCity = function (city) {
-  const base = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=" + apiKey;
+  const base = "https://dataservice.accuweather.com/locations/v1/cities/search?apikey=" + apiKey;
   const query = '&q=' + city + '&offset=0';
   fetch(base + query)
     .then(function (response) {
@@ -139,7 +139,7 @@ var getCity = function (city) {
     })
 }
 const getWeather = async (locationKey) => {
-  const base = "http://dataservice.accuweather.com/currentconditions/v1/"
+  const base = "https://dataservice.accuweather.com/currentconditions/v1/"
   const query = locationKey + "?apikey=" + apiKey;
   const response = await fetch(base + query);
   const data = await response.json();
@@ -152,7 +152,7 @@ const getWeather = async (locationKey) => {
   tempIconEl.setAttribute('src', './assets/icons/' + weatherIcon + '.png');
 }
 const getForecast = async (locationKey) => {
-  const base = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
+  const base = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
   const query = locationKey + "?apikey=" + apiKey;
   const response = await fetch(base + query);
   const data = await response.json();
